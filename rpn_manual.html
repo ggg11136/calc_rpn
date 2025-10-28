@@ -55,6 +55,8 @@ figcaption {
 <hr>
 </header><main>
 <h1>RPN计算器使用手册</h1>
+<h2>作者:guojia</h2>
+<h2>日期:2025.10</h2>
 <h2>简介</h2>
 <p>逆波兰表示法（Reverse Polish Notation，RPN）是一种数学表达式表示法，其中操作符位于操作数之后。</p>
 <h2>安装和编译</h2>
@@ -64,44 +66,34 @@ figcaption {
 bash
 ./rpn_calc
 </code></pre>
-<p>基本使用示例</p>
+<h2>基本使用示例</h2>
 <pre><code class="nohighlight hljs nim"><span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;示例输入和输出：&quot;</span>
 <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输入: '5 5 +'&quot;</span>
 <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输出: 结果: 10&quot;</span>
 <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&quot;</span>
 <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输入: '1 2 + 3 + 7 7 * +'&quot;</span>
-<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输出: 结果: 55&quot;</span></code></pre><pre class="nb-output">示例输入和输出：
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输出: 结果: 55&quot;</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输入:'-3 neg'&quot;</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输出:结果:3&quot;</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输入:'16 sqrt'&quot;</span>
+<span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输出:结果:4&quot;</span></code></pre><pre class="nb-output">示例输入和输出：
 输入: '5 5 +'
 输出: 结果: 10
 
 输入: '1 2 + 3 + 7 7 * +'
-输出: 结果: 55</pre>
-<p>支持的操作符
-基础运算</p>
-<ul>
-<li>
-<ul>
-<li>加法</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<ul>
-<li>减法</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<ul>
-<li>乘法</li>
-</ul>
-</li>
-</ul>
+输出: 结果: 55
+输入:'-3 neg'
+输出:结果:3
+输入:'16 sqrt'
+输出:结果:4</pre>
+<h2>支持的操作符</h2>
+<h2>基础运算</h2>
+<p>＋ - 加法</p>
+<p>－ - 减法</p>
+<p>＊ - 乘法</p>
 <p>/ - 除法</p>
-<p>高级运算
-sqrt - 平方根</p>
+<h2>高级运算</h2>
+<p>sqrt - 平方根</p>
 <p>^ - 幂运算</p>
 <p>fib - 斐波那契数</p>
 <p>栈操作
@@ -109,6 +101,14 @@ clear - 清空栈</p>
 <p>show - 显示栈</p>
 <p>history - 显示历史</p>
 <p>help - 帮助信息</p>
+<h2>错误代码和异常说明</h2>
+<p>栈空         —— 操作数不足,</p>
+<p>除零错误     —— 0 作除数,</p>
+<p>负数开方     —— sqrt 参数 &lt; 0,</p>
+<p>数值溢出     —— 结果超出 double 范围,</p>
+<p>未知操作符   —— 未定义符号,</p>
+<p>表达式不完整 —— 栈未归一
+&quot;</p>
 </main>
 <footer>
 <div class="nb-box">
@@ -124,7 +124,9 @@ nbInit
 
 nbText: <span class="hljs-string">&quot;&quot;&quot;
 # RPN计算器使用手册
+## 作者:guojia
 
+## 日期:2025.10
 ## 简介
 逆波兰表示法（Reverse Polish Notation，RPN）是一种数学表达式表示法，其中操作符位于操作数之后。
 
@@ -140,7 +142,7 @@ bash
 
 nbText: <span class="hljs-string">&quot;&quot;&quot;
 
-基本使用示例
+## 基本使用示例
 &quot;&quot;&quot;</span>
 
 nbCode:
@@ -150,20 +152,25 @@ nbCode:
   <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;&quot;</span>
   <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输入: '1 2 + 3 + 7 7 * +'&quot;</span>
   <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输出: 结果: 55&quot;</span>
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输入:'-3 neg'&quot;</span>
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输出:结果:3&quot;</span>
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输入:'16 sqrt'&quot;</span>
+  <span class="hljs-keyword">echo</span> <span class="hljs-string">&quot;输出:结果:4&quot;</span>
 
 nbText: <span class="hljs-string">&quot;&quot;&quot;
 
-支持的操作符
-基础运算
-+ - 加法
+## 支持的操作符
+## 基础运算
+＋ - 加法
 
-- - 减法
+－ - 减法
 
-* - 乘法
+＊ - 乘法
 
 / - 除法
 
-高级运算
+
+## 高级运算
 sqrt - 平方根
 
 ^ - 幂运算
@@ -180,6 +187,20 @@ history - 显示历史
 help - 帮助信息
 &quot;&quot;&quot;</span>
 
+nbText: <span class="hljs-string">&quot;&quot;&quot;
+## 错误代码和异常说明
+栈空         —— 操作数不足,
+
+除零错误     —— 0 作除数,
+
+负数开方     —— sqrt 参数 &lt; 0,
+
+数值溢出     —— 结果超出 double 范围,
+
+未知操作符   —— 未定义符号,
+
+表达式不完整 —— 栈未归一
+&quot;&quot;&quot;&quot;</span>
 nbSave
 </code></pre>
 </section><script>
